@@ -1,0 +1,290 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<div class="center">
+  <div class="d-flex p-2 bd-highlight">
+    <h1>Danh sách đầu sách</h1>
+    <add-book-title></add-book-title>
+  </div>
+  <ul class="nav nav-pills" id="myTabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#active" role="tab"
+        aria-controls="active" aria-selected="true">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#deactive" role="tab"
+        aria-controls="deactive" aria-selected="false">Inactive</a>
+    </li>
+    <!-- Add more tabs as needed -->
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="active" role="tabpanel" aria-labelledby="tab1-tab">
+      <h3>Sách active</h3>
+      <div>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr class="text-center">
+              <th style="width: 10%">Mã đầu sách</th>
+              <th style="width: 10%">Tên đầu sách</th>
+              <th style="width: 10%">Tác giả</th>
+              <th style="width: 10%">Số trang</th>
+              <th style="width: 10%">Action</th>
+              <!-- <th>Thể loại</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let item of data">
+              <tr class="active-table" *ngIf="item.status == 1">
+                <td class="text-center">{{ item.bookCode }}</td>
+                <td class="text-center">{{ item.title }}</td>
+                <td class="text-center">{{ item.author }}</td>
+                <td class="text-center">{{ item.pages }}</td>
+                <td class="text-center">
+                  <div>
+                    <button class="btn btn-info" (click)="openModel(item)">Detail</button>
+                    <button class="btn btn-danger" (click)="openModelDisable(item.bookCode)">Disable</button>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+            <!-- <td>{{ item.genre }}</td> -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="deactive" role="tabpanel" aria-labelledby="tab2-tab">
+      <h3>Sách inactive</h3>
+      <div>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr class="text-center">
+              <th>Mã đầu sách</th>
+              <th>Tên đầu sách</th>
+              <th>Tác giả</th>
+              <th>Số trang</th>
+              <th>Action</th>
+              <!-- <th>Thể loại</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let item of data">
+              <tr class="deactivetable" *ngIf="item.status == 0">
+                <td class="text-center">{{ item.bookCode }}</td>
+                <td class="text-center">{{ item.title }}</td>
+                <td class="text-center">{{ item.author }}</td>
+                <td class="text-center">{{ item.pages }}</td>
+                <td class="text-center">
+                  <div>
+                    <button class="btn btn-info" (click)="openModel(item)">Detail</button>
+                    <button class="btn btn-danger" (click)="openModelEnable(item.bookCode)">Enable</button>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+            <!-- <td>{{ item.genre }}</td> -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="modal fade" id="modal-detail-cat" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Chi tiết sách</h3>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <div>
+                <div>
+                  <label for="title">Title</label>
+                  <input id="title" [(ngModel)]="dausachDetail.title">
+              </div>
+              <div>
+                  <label for="publisher">Publisher</label>
+                  <input id="publisher" [(ngModel)]="dausachDetail.publisher">
+              </div>
+              <div>
+                  <label for="price">Price</label>
+                  <input id="price" [(ngModel)]="dausachDetail.price">
+              </div>
+              <div>
+                  <label for="pages">Number of Pages</label>
+                  <input id="pages" [(ngModel)]="dausachDetail.pages">
+              </div>
+              <div>
+                  <label for="description">Description</label>
+                  <input id="description" [(ngModel)]="dausachDetail.description">
+              </div>
+              <div>
+                  <label for="author">Author</label>
+                  <input id="author" [(ngModel)]="dausachDetail.author"></div>
+              <div>
+                  <label for="createdYear">Created Year</label>
+                  <input id="createdYear" [(ngModel)]="dausachDetail.createdYear">
+              </div>  
+              <div>
+                <label for="quantity">Quantity</label>
+                <input id="quantity" [(ngModel)]="quantity">
+              </div>
+              </div>
+              <h3>Danh sách sách</h3>
+              <div>
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr class="text-center">
+                      <th>Mã sách</th>
+                      <th>Trạng thái</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let item of bookdata">
+                      <tr class="text-center">
+                          <td>{{ item.bookId }}</td>
+                          <td> {{ item.status }}</td>
+                      </tr>
+                  </ng-container>    
+                  </tbody>
+                </table>
+              </div> -->
+              <div class="user_form">
+                <div class="input-group">
+                  <div class="col-sm-4">
+                    <span class="input-group-text">Tên sách</span>
+                  </div>
+                  <input type="text" aria-label="title" class="form-control" [(ngModel)]="dausachDetail.title" name="title" required>
+                </div>
+                <div class="input-group">
+                  <div class="col-sm-4">
+                    <span class="input-group-text">Tác giả</span>
+                  </div>
+                  <input type="text" aria-label="author" class="form-control" [(ngModel)]="dausachDetail.author" name="author" required>
+                </div>
+                <div class="input-group">
+                  <div class="col-sm-4">
+                    <span class="input-group-text">Nhà xuất bản</span>
+                  </div>
+                  <input type="email" aria-label="publisher" class="form-control" [(ngModel)]='dausachDetail.publisher' name="publisher">
+                </div>
+                <div class="input-group">
+                  <div class="col-sm-4">
+                    <span class="input-group-text">Số trang</span>
+                  </div>
+                  <input type="text" aria-label="pages" class="form-control" [(ngModel)]='dausachDetail.pages' name="pages">
+                </div>
+                <div class="input-group">
+                  <div class="col-sm-4">
+                    <span class="input-group-text">Mô tả</span>
+                  </div>
+                  <input type="text" aria-label="description" class="form-control" [(ngModel)]='dausachDetail.description' name="description">
+                </div>
+                <div class="input-group">
+                  <div class="col-sm-4">
+                    <span class="input-group-text">Giá</span>
+                  </div>
+                  <input type="text" aria-label="price" class="form-control" [(ngModel)]='dausachDetail.price' name="price">
+                </div>
+                <div class="input-group">
+                  <div class="col-sm-4">
+                    <span class="input-group-text">Năm xuất bản</span>
+                  </div>
+                  <input type="text" aria-label="createdYear" class="form-control" [(ngModel)]='dausachDetail.createdYear' name="createdYear">
+                </div>
+                <div class="input-group">
+                  <div class="col-sm-4">
+                    <span class="input-group-text">Thêm số lượng</span>
+                  </div>
+                  <input type="text" aria-label="quantity" class="form-control" [(ngModel)]='quantity' name="quantity">
+                </div>
+                <div>
+                  <div class="input-group">
+                    <div class=" col-sm-4">
+                      <span class="input-group-text">Thể loại</span>
+                    </div>
+                    <select class="form-select" id="genre" multiple>
+                        <option *ngFor="let item of dausachDetail.genres" [value]="item">{{ item.genre_name }}</option>
+                    </select>
+                </div>
+                </div>
+                <br/>
+                <div class="status1_checkbox">
+                  <input id="status1" class="form-check-input" [value]="1" type="radio" aria-label="Activate book" name="status" [(ngModel)]="dausachDetail.status">
+                  <label class="form-check-label" for="status1">Active</label>
+                </div>
+                <div class="status0_checkbox" >
+                  <input id="status0" class="form-check-input" [value]="0" type="radio" aria-label="Deactivate book" name="status" [(ngModel)]="dausachDetail.status">
+                  <label class="form-check-label" for="status0">Inactive</label>
+                </div>
+                <h3>Danh sách sách</h3>
+                <div>
+                  <table class="table">
+                    <thead class="thead-dark">
+                      <tr class="text-center">
+                        <th>Mã sách</th>
+                        <th>Trạng thái</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <ng-container *ngFor="let item of bookdata">
+                        <tr class="text-center">
+                            <td>{{ item.bookId }}</td>
+                            <td>{{ item.status }}</td>
+                        </tr>
+                    </ng-container>    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-normal" (click)="closeModel()">Đóng</button>
+        <button type="button" class="btn btn-danger" (click)="updateBookTitle()">Sửa</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal-disable-cat" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cảnh báo</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn disable đầu sách này không?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closeModelDisable()">Hủy</button>
+        <button type="button" class="btn btn-danger" (click)="disable()">Đồng ý</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal-enable-cat" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cảnh báo</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn enable đầu sách này không?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closeModelEnable()">Hủy</button>
+        <button type="button" class="btn btn-danger" (click)="enable()">Đồng ý</button>
+      </div>
+    </div>
+  </div>
+</div>

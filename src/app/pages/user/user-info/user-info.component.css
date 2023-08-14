@@ -1,0 +1,44 @@
+.user_info {
+    display: flex;
+    gap: 30px;
+    margin: auto;
+    width: 90%;
+    padding-bottom: 40px;
+}
+.user_wrap {
+    background: #dad6d6;
+    margin: 20px;
+    border-radius: 5px;
+    
+}
+.user_img {
+    width: 30%;
+    margin-top: 14px;
+}
+.user_img img {
+    width: 100%;
+    border-radius: 5px;
+}
+.user_form {
+    width: 70%;
+}
+.input-group-text {
+    width: 150px;
+}
+.input-group {
+    margin: 10px 0;
+}
+.user_title {
+    text-align: center;
+    padding-top: 20px;
+}
+.gender_checkbox {
+    margin-left: 150px;
+}
+.gender_checkbox input {
+    margin: 0 20px;
+}
+.button_input {
+    text-align: center;
+    margin-top: 20px;
+}

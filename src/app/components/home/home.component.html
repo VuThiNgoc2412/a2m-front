@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row" *ngFor="let g of groupBookTitle">
+    <div class="item-book shadow bg-body rounded" *ngFor="let b of g">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0039/7282/5134/products/AKBA_Racism_Cover_db369bb1-d208-421c-b327-93db46fa052b.png?v=1665006228"
+        alt="" class="img-book" (click)="showBookDetail(b)">
+      <div class="content-book">
+        <p class="title-book" style="margin: 0px;">{{b.title}}</p>
+        <div class="d-flex ">
+          <a class="book_author ">Tác giả: {{b.author}}</a>
+          <button type="button" class="btn_add" [disabled]="b.quantity === 0" (click)="addBookToCart(b)">
+          <!-- <button type="button" class="btn_add" [disabled]="b.quantity == 0"> -->
+
+            <img src="https://cdn-icons-png.flaticon.com/128/10452/10452868.png" alt="" class="img_add ">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section section_slide">
+  <!-- Phân trang -->
+  <div class="pagination">
+    <ul class="pagination-list">
+      <i class="fa fa-angle-left" aria-hidden="true"></i>
+      <li *ngFor="let i of numbersArray">
+        <!-- <a  [routerLink]="['/home']" [queryParams]="{page: i}">{{i}}</a> -->
+        <a  (click)="appendQueryParam(i)">{{i}}</a>
+
+      </li>
+      <!-- <li><a [routerLink]="[]">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">...</a></li> -->
+      <i class="fa fa-angle-right" aria-hidden="true"></i>
+    </ul>
+  </div>
+</div>

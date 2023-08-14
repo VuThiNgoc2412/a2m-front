@@ -1,0 +1,172 @@
+<div class="container" style="min-height: 786px;">
+    <div style="margin-top: 20px;margin-bottom: 20px;" class="btn-group" role="group"
+        aria-label="Basic radio toggle button group">
+        <input (click)="getStatus(0)" type="radio" class="btn-check" name="btnradio" id="btnradio1" value="0"
+            autocomplete="off" checked>
+        <label class="btn btn-outline-success" for="btnradio1">Đang chờ xác nhận</label>
+
+        <input (click)="getStatus(1)" type="radio" class="btn-check" name="btnradio" id="btnradio2" value="1"
+            autocomplete="off">
+        <label class="btn btn-outline-primary" for="btnradio2">Đang cho mượn</label>
+
+        <input (click)="getStatus(2)" type="radio" class="btn-check" name="btnradio" id="btnradio3" value="2"
+            autocomplete="off">
+        <label class="btn btn-outline-danger" for="btnradio3">Đã trả</label>
+    </div>
+
+
+    <!-- Hiển thị danh sách phiếu mượn với status là " đang chờ xác nhận " -->
+    <div *ngIf="status === 0">
+        <div style="display: flex; background-color: antiquewhite" class="shadow-sm p-3 mb-5 bg-body rounded">
+            <div class="form-check" style="width: 35%; margin: 0px;">
+                <label class="form-check-label" for="flexCheckDefault" style="font-size: large;font-weight: bold;">
+                    Thông tin
+                </label>
+            </div>
+            <p scope="col" style="width: 15%; text-align: center;font-weight: bold" class="content-item">Số lượng sách
+            </p>
+            <p scope="col" style="width: 25%;text-align: center;font-weight: bold" class="content-item">Ngày tạo phiếu
+            </p>
+            <p scope="col" style="width: 25%;text-align: center;font-weight: bold" class="content-item">Thao tác</p>
+        </div>
+        <div class="content shadow p-3 mb-5 bg-body rounded" *ngFor="let item of list">
+            <div class="item-table d-flex">
+                <div style="display: flex;width: 35%;">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                            style="border: 1px solid #0000ff;">
+                    </div>
+                    <div class="content-con1 d-flex p-2 bd-highlight">
+                        <img src="https://cdn-icons-png.flaticon.com/128/277/277938.png" alt="" class="img-item">
+                        <div style="width:200px;margin-top: 15px;">
+                            <div class="d-flex">
+                                <p class="info">{{item.UserInfo?.fullName}}</p>
+                                <img src="https://cdn-icons-png.flaticon.com/128/3214/3214687.png" alt=""
+                                    class="img-send">
+                            </div>
+                            <p class="info">{{item.UserInfo?.email}}</p>
+                        </div>
+                    </div>
+                </div>
+                <td class="content-item" style="width: 15%">3</td>
+                <td class="content-item" style="width: 25%; font-style: italic">{{ item.createdDate | date:'hh:mm -
+                    dd/MM/yyyy' }}</td>
+                <div class="content-item" style=" width: 25%;">
+                    <div style="text-align: center;">
+                        <button type="button" class="btn btn-sm btn-success" style="width: 150px;">Xác nhận</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-container *ngIf="list.length === 0">
+            <p style="font-size: 25px; font-weight: bold; color: red;">
+                Hiện tại không
+                có phiếu nào cần xác nhận!</p>
+        </ng-container>
+    </div>
+
+    <!-- Hiển thị danh sách phiếu mượn với status là " Đang cho mượn " -->
+    <div *ngIf="status === 1">
+        <div style="display: flex; background-color: antiquewhite" class="shadow-sm p-3 mb-5 bg-body rounded">
+            <div class="form-check" style="width: 22%; margin: 0px;">
+                <label class="form-check-label" for="flexCheckDefault" style="font-size: large;font-weight: bold;">
+                    Thông tin
+                </label>
+            </div>
+            <p scope="col" style="width: 14%; text-align: center;font-weight: bold" class="content-item">Số lượng sách
+            </p>
+            <p scope="col" style="width: 18%;text-align: center;font-weight: bold" class="content-item">Ngày tạo
+            </p>
+            <p scope="col" style="width: 18%;text-align: center;font-weight: bold" class="content-item">Ngày nhận
+            </p>
+            <p scope="col" style="width: 18%;text-align: center;font-weight: bold" class="content-item">Ngày trả dự kiến
+            </p>
+            <p scope="col" style="width: 10%;text-align: center;font-weight: bold" class="content-item">Thao tác</p>
+        </div>
+        <div class="content shadow p-3 mb-5 bg-body rounded" *ngFor="let item of list">
+            <div class="item-table d-flex">
+                <div style="display: flex;width: 22%;">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                            style="border: 1px solid #0000ff;">
+                    </div>
+                    <div class="content-con1 d-flex p-2 bd-highlight">
+                        <img src="https://cdn-icons-png.flaticon.com/128/277/277938.png" alt="" class="img-item">
+                        <div style="margin-top: 15px;">
+                            <div class="d-flex">
+                                <p class="info">{{item.UserInfo?.fullName}}</p>
+
+                            </div>
+                            <p class="info">{{item.UserInfo?.email}}</p>
+                        </div>
+                    </div>
+                </div>
+                <td class="content-item" style="width: 14%">{{item.countBook}}</td>
+                <td class="content-item" style="width: 18%">{{ item.createdDate | date:'hh:mm - dd/MM/yyyy' }}</td>
+                <td class="content-item" style="width: 18%;">{{ item.borrowDate | date:'hh:mm - dd/MM/yyyy' }}</td>
+                <td class="content-item" style="width: 18%; font-style: italic">{{ item.returnDateEstimate | date:'hh:mm
+                    - dd/MM/yyyy' }}</td>
+                <div class="content-item" style=" width: 10%;">
+                    <div style="text-align: center;">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3214/3214687.png" alt="" class="img-send">
+                        <img src=" https://cdn-icons-png.flaticon.com/128/7691/7691942.png" alt=""
+                            style="width: 40px; height: 40px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hiển thị danh sách phiếu mượn với status là " Đã trả " -->
+    <div *ngIf="status === 2">
+        <div style="display: flex; background-color: antiquewhite" class="shadow-sm p-3 mb-5 bg-body rounded">
+            <div class="form-check" style="width: 22%; margin: 0px;">
+                <label class="form-check-label" for="flexCheckDefault" style="font-size: large;font-weight: bold;">
+                    Thông tin
+                </label>
+            </div>
+            <p scope="col" style="width: 14%; text-align: center;font-weight: bold" class="content-item">Số lượng sách
+            </p>
+            <p scope="col" style="width: 18%;text-align: center;font-weight: bold" class="content-item">Ngày tạo
+            </p>
+            <p scope="col" style="width: 18%;text-align: center;font-weight: bold" class="content-item">Ngày nhận
+            </p>
+            <p scope="col" style="width: 18%;text-align: center;font-weight: bold" class="content-item">Ngày trả
+            </p>
+            <p scope="col" style="width: 10%;text-align: center;font-weight: bold" class="content-item">Thao tác</p>
+        </div>
+        <div class="content shadow p-3 mb-5 bg-body rounded" *ngFor="let item of list">
+            <div class="item-table d-flex">
+                <div style="display: flex;width: 22%;">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                            style="border: 1px solid #0000ff;">
+                    </div>
+                    <div class="content-con1 d-flex p-2 bd-highlight">
+                        <img src="https://cdn-icons-png.flaticon.com/128/277/277938.png" alt="" class="img-item">
+                        <div style="width:200px;margin-top: 15px;">
+                            <div class="d-flex">
+                                <p class="info">{{item.UserInfo?.fullName}}</p>
+
+                            </div>
+                            <p class="info">{{item.UserInfo?.email}}</p>
+                        </div>
+                    </div>
+                </div>
+                <td class="content-item" style="width: 14%">{{item.countBook}}</td>
+                <td class="content-item" style="width: 18%">{{ item.createdDate | date:'hh:mm - dd/MM/yyyy' }}</td>
+                <td class="content-item" style="width: 18%;">{{ item.borrowDate | date:'hh:mm - dd/MM/yyyy' }}</td>
+                <td class="content-item" style="width: 18%; font-style: italic">{{ item.returnUpdateReal | date:'hh:mm
+                    - dd/MM/yyyy' }}</td>
+                <div class="content-item" style=" width: 10%;">
+                    <div style="text-align: center;">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3214/3214687.png" alt="" class="img-send">
+                        <img src=" https://cdn-icons-png.flaticon.com/128/7691/7691942.png" alt=""
+                            style="width: 40px; height: 40px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

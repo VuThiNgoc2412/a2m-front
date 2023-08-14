@@ -1,0 +1,82 @@
+.user_info {
+    display: flex;
+    gap: 30px;
+    margin: auto;
+    width: 90%;
+    padding-bottom: 40px;
+}
+.user_wrap {
+    background: #dad6d6;
+    margin: 28px;
+    border-radius: 5px;
+    
+}
+.user_img {
+    width: 20%;
+    margin-top: 14px;
+}
+.user_img img {
+    width: 100%;
+    border-radius: 5px;
+}
+.user_form {
+    width: 65%;
+}
+.user_order {
+    width: 15%;
+    height: 150px;
+    background: #62e162;
+    padding: 20px 6px;
+    border-radius: 5px;
+    margin-top: 14px;
+}
+.user_order h4 {
+    color: #db1d37;
+    text-align: center;
+}
+.user_order h6 {
+    color:  #db1d37;
+    text-align: center;
+    font-size: 22px;
+    margin-top: 20px;
+}
+.user_active {
+    border: none;
+    width: 180px;
+    background: #d19922;
+    color: #fff;
+    height: 40px;
+    text-align: center;
+    border-radius: 28px;
+    margin: 5px 10px;
+    font-size: 18px;
+  }
+  .user_active:active {
+    background: #19e219;
+
+  }
+  .user_button {
+    border-top: 3px solid rgb(225, 183, 14);
+    padding-top: 20px;
+    margin: 0 28px;
+  }
+.input-group-text {
+    width: 150px;
+}
+.input-group {
+    margin: 10px 0;
+}
+.user_title {
+    text-align: center;
+    padding-top: 20px;
+}
+.gender_checkbox {
+    margin-left: 150px;
+}
+.gender_checkbox input {
+    margin: 0 20px;
+}
+.button_input {
+    text-align: center;
+    margin-top: 20px;
+}

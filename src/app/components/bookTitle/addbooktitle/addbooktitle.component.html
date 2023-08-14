@@ -1,0 +1,124 @@
+<!-- <button class="btn btn-primary" (click)="openModel()">Thêm đầu sách</button> -->
+<img src="https://cdn-icons-png.flaticon.com/128/1828/1828817.png" alt="" class="img-add" (click)="openModel()"
+            data-bs-toggle="modal" data-bs-target="#modal-add-cat">
+
+<div class="modal fade" id="modal-add-cat" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm loại sách mới</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" >
+                <!-- <div>
+                    <label for="title">Title</label>
+                    <input id="title" [(ngModel)]="dausach.title">
+                </div>
+                <div>
+                    <label for="publisher">Publisher</label>
+                    <input id="publisher" [(ngModel)]="dausach.publisher">
+                </div>
+                <div>
+                    <label for="price">Price</label>
+                    <input id="price" [(ngModel)]="dausach.price">
+                </div>
+                <div>
+                    <label for="pages">Number of Pages</label>
+                    <input id="pages" [(ngModel)]="dausach.pages">
+                </div>
+                <div>
+                    <label for="description">Description</label>
+                    <input id="description" [(ngModel)]="dausach.description">
+                </div>
+                <div>
+                    <label for="author">Author</label>
+                    <input id="author" [(ngModel)]="dausach.author"></div>
+                <div>
+                    <label for="createdYear">Created Year</label>
+                    <input id="createdYear" [(ngModel)]="dausach.createdYear">
+                </div>
+                <div>
+                    <label for="genre">Thể loại</label>
+                    <select class="selectpicker" id="genre" [(ngModel)]="selectedGenre" multiple>
+                        <option *ngFor="let item of genreList" [value]="item.genre_id">{{ item.genre_name }}</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="quantity">Quantity</label>
+                    <input id="quantity" [(ngModel)]="quantity">
+                </div> -->
+                <div class="user_form">
+                    <div class="input-group">
+                      <div class=" col-sm-4">
+                        <span class="input-group-text">Tên sách</span>
+                      </div>
+                      <input type="text" aria-label="title" class="form-control" [(ngModel)]="dausach.title" name="title">
+                    </div>
+                    <div class="input-group">
+                      <div class=" col-sm-4">
+                        <span class="input-group-text">Tác giả</span>
+                      </div>
+                      <input type="text" aria-label="author" class="form-control" [(ngModel)]="dausach.author" name="author">
+                    </div>
+                    <div class="input-group">
+                      <div class=" col-sm-4">
+                        <span class="input-group-text">Nhà xuất bản</span>
+                      </div>
+                      <input type="email" aria-label="publisher" class="form-control" [(ngModel)]='dausach.publisher' name="publisher">
+                    </div>
+                    <div class="input-group">
+                      <div class=" col-sm-4">
+                        <span class="input-group-text">Số trang</span>
+                      </div>
+                      <input type="text" aria-label="pages" class="form-control" [(ngModel)]='dausach.pages' name="pages">
+                    </div>
+                    <div class="input-group">
+                      <div class="col-sm-4">
+                        <span class="input-group-text">Mô tả</span>
+                      </div>
+                      <input type="text" aria-label="description" class="form-control" [(ngModel)]='dausach.description' name="description">
+                    </div>
+                    <div class="input-group">
+                      <div class=" col-sm-4">
+                        <span class="input-group-text">Giá</span>
+                      </div>
+                      <input type="text" aria-label="price" class="form-control" [(ngModel)]='dausach.price' name="price">
+                    </div>
+                    <div class="input-group">
+                      <div class=" col-sm-4">
+                        <span class="input-group-text">Năm xuất bản</span>
+                      </div>
+                      <input type="text" aria-label="createdYear" class="form-control" [(ngModel)]='dausach.createdYear' name="createdYear">
+                    </div>
+                    <div class="input-group">
+                        <div class=" col-sm-4">
+                          <span class="input-group-text">Thể loại</span>
+                        </div>
+                        <select class="form-select" id="genre" [(ngModel)]="selectedGenre" multiple>
+                            <option *ngFor="let item of genreList" [value]="item">{{ item.genre_name }}</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <div class=" col-sm-4">
+                          <span class="input-group-text">Số lượng</span>
+                        </div>
+                        <input type="text" aria-label="quantity" class="form-control" [(ngModel)]='quantity' name="quantity">
+                      </div>
+                    <div class="status_checkbox">
+                      <br/>
+                      <span>Active</span>
+                      <input [value]="1" type="radio" aria-label="Activate book" name="status" [(ngModel)]="dausach.status" >
+                      <span>Inactive</span>
+                      <input [value]="0" type="radio" aria-label="Deactivate book" name="status" [(ngModel)]="dausach.status" >
+                    </div>
+                  </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="closeModel()">Hủy</button>
+                <button type="button" class="btn btn-success" (click)="addBookTitle()">Thêm</button>
+            </div>
+        </div>
+    </div>
+</div>

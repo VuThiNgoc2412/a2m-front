@@ -1,0 +1,15 @@
+table{
+    width:100%;
+    table-layout:fixed;
+}
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+status1_checkbox{
+    padding: 100px;
+}
+status0_checkbox{
+    padding: 100px;
+}

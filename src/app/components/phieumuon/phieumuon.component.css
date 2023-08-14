@@ -1,0 +1,47 @@
+.btn {
+    width: 200px;
+    height: max-content;
+}
+
+.menu {
+    margin: 20px 0px;
+    align-content: center;
+}
+
+.form-check {
+    margin-top: 35px;
+    margin-left: 10px;
+}
+
+.content-con1 {
+    width: 400px;
+}
+
+.img-item {
+    width: 75px;
+    height: 75px;
+    margin-right: 20px;
+}
+
+.info {
+    margin: 0px;
+    margin-right: 10px;
+}
+
+.img-send {
+    height: 25px;
+    width: 25px;
+    margin: 0px 10px;
+}
+
+
+.item-table {
+    border-radius: 10px;
+}
+
+.content-item {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}

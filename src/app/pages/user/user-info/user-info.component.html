@@ -1,0 +1,60 @@
+<div class="user_wrap">
+  <h2 class="user_title">Thông tin cá nhân</h2>
+  <div class="user_info">
+    <div class="user_img">
+      <img
+        src="https://brocanvas.com/wp-content/uploads/2022/01/hinh-anh-chu-cho-foxx-soc.jpg"
+        alt=""
+      />
+    </div>
+    <div class="user_form">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Họ và tên</span>
+        </div>
+        <input type="text" aria-label="name" class="form-control" [(ngModel)]="userInfo.fullName" name="fullName">
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Tên tài khoản</span>
+        </div>
+        <input type="text" aria-label="username" class="form-control" [(ngModel)]="userInfo.userId" name="username" readonly>
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Email</span>
+        </div>
+        <input type="email" aria-label="email" class="form-control" [(ngModel)]='userInfo.email' name="email">
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Số điện thoại</span>
+        </div>
+        <input type="text" aria-label="phone" class="form-control" [(ngModel)]='userInfo.cellPhone' name="cellPhone">
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Địa chỉ</span>
+        </div>
+        <input type="text" aria-label="address" class="form-control" [(ngModel)]='userInfo.address' name="address">
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Ngày sinh</span>
+        </div>
+        <!-- <input type="date" aria-label="dob" class="form-control"   [value]="userInfo.dob | date: 'yyyy-MM-dd'" name="dob"> -->
+        <input type="date" aria-label="dob" class="form-control"   [(ngModel)]="userInfo.dob" name="dob">
+      </div>
+      <div class="gender_checkbox">
+        <span>Nam</span>
+        <input [value]="true" type="radio" aria-label="Radio button for following text input" name="gender" [(ngModel)]="userInfo.gender" >
+        <span>Nữ</span>
+        <input [value]="false" type="radio" aria-label="Radio button for following text input" name="gender" [(ngModel)]="userInfo.gender" >
+      </div>
+      
+      <div class="button_input">
+      <button type="button" class="btn btn-danger" (click)="update()">UPDATE</button>
+      </div>
+    </div>
+  </div>
+</div>

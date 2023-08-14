@@ -1,0 +1,62 @@
+
+<div class="wrapper">
+  <h3>List User</h3>
+  <div class="container">
+    <table class="table">
+      <thead class="table-dark">
+        <tr class="text-center">
+          <th>Họ và tên</th>
+          <th>Email</th>
+          <th>Số điện thoại</th>
+          <th>Số phiếu đã tạo</th>
+          <th>Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <button class="user_active">Đang hoạt động</button>
+        <tr *ngFor="let c of users; let i = index" >
+          <td class="d-flex align-items-center justify-content-around">
+            <p>{{ c.fullName }}</p>
+          </td>
+          <td>
+            <p>{{ c.email }}</p>
+          </td>
+          <td>
+            <p>{{ c.cellPhone }}</p>
+          </td>
+          <td>
+            <p>{{ c.dob }}</p>
+          </td>
+          <td>
+            <div>
+              <i class="fa fa-trash action_icon" aria-hidden="true"></i>
+              <i class="fa fa-pencil-square-o action_edit" aria-hidden="true"></i>
+            </div>
+          </td>
+        </tr>
+        <button class="user_not">Ngừng hoạt động
+        </button>
+        <tr *ngFor="let c of users" class="not_active">
+          <td class="d-flex align-items-center justify-content-around">
+            <p>{{ c.fullName }}</p>
+          </td>
+          <td>
+            <p>{{ c.email }}</p>
+          </td>
+          <td>
+            <p>{{ c.cellPhone }}</p>
+          </td>
+          <td>
+            <p>{{ c.dob }}</p>
+          </td>
+          <td>
+            <div>
+              <i class="fa fa-trash action_icon" aria-hidden="true"></i>
+              <i class="fa fa-pencil-square-o action_edit" aria-hidden="true"></i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

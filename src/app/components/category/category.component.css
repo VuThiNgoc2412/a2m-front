@@ -1,0 +1,45 @@
+.container {
+    align-content: center;
+}
+
+.img-add {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.img-item {
+    border-radius: 200px;
+    width: 100px;
+    height: 100px;
+}
+
+.item {
+    margin: 10px 40px 10px 40px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.title-cat {
+    margin: 10px;
+    color: #000000;
+}
+
+.content {
+    max-height: 786px;
+}
+
+.title-cat:hover {
+    color: rgb(255, 127, 35);
+}
+
+.status_checkbox {
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  
+.status_checkbox span {
+    margin-right: 5px;
+    margin-left: 20px;;
+  }

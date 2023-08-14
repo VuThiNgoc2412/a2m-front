@@ -1,0 +1,80 @@
+
+  
+  /* Style for the wrapper */
+  .wrapper {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style for the header */
+  .wrapper h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  /* Style for the table */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border: 1px solid #343333;
+  }
+  
+  /* Style for table headers */
+  .table th, .table td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .table th {
+    background-color: #545151;
+    font-weight: bold;
+  }
+  td p {
+    color: black;
+  }
+  /* Style for alternating table rows */
+  .table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+.action_icon {
+    margin: 0 28px;
+}
+.user_active {
+  border: none;
+  width: 150px;
+  background: #19e219;
+  color: #fff;
+  height: 40px;
+  text-align: center;
+  border-radius: 28px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.user_not {
+  border: none;
+  width: 150px;
+  background: rgb(218, 37, 37);
+  color: #fff;
+  height: 40px;
+  text-align: center;
+  border-radius: 28px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.action_edit {
+  color: #19e219;
+}
+.action_icon {
+  color: rgb(218, 37, 37);
+}
+.not_active td p{
+  color: #999292;
+}

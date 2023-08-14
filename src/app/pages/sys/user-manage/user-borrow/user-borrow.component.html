@@ -1,0 +1,74 @@
+<app-user-detail></app-user-detail>
+
+<div class="container cart_container">
+  <!-- <div *ngIf="cartData.data[0].numInCart === 0;" class="text-center my-5">
+      <h4>Your Cart Is Empty</h4>
+      <button class="btn btn-primary btn-lg mt-3" routerLink="/">GO TO SHOP</button>
+    </div> -->
+
+  <!-- <ng-container *ngIf="cartData.data[0].numInCart !== 0"> -->
+  <ng-container>
+    <div class="row">
+      <div class="col my-4">
+        <table class="table">
+          <thead class="table-dark">
+            <tr class="text-center">
+              <th>Sản phẩm</th>
+              <th>Số lượng sách</th>
+              <th>Ngày tạo</th>
+              <th>Ngày hẹn lấy</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr *ngFor="let c of cartData.data; let i=index"> -->
+            <tr *ngFor="let c of bookWaits">
+              <td class="align-items-center justify-content-around">
+                <div class="product_cart">
+                  <img
+                    src="{{ c.img }}"
+                    alt="{{ c.name }}"
+                    height="60"
+                    class="cart_img"
+                  />
+                  <img
+                    src="{{ c.img }}"
+                    alt="{{ c.name }}"
+                    height="60"
+                    class="cart_img"
+                  />
+                  <img
+                    src="{{ c.img }}"
+                    alt="{{ c.name }}"
+                    height="60"
+                    class="cart_img"
+                  />
+                </div>
+              </td>
+              <td>
+                <p>{{ c.qty }}</p>
+              </td>
+              <td>
+                <p>{{ c.createdDate }}</p>
+              </td>
+              <td>
+                <p>{{ c.givedDate }}</p>
+              </td>
+              <td>
+                <i class="fa fa-envelope-o wait_icon" aria-hidden="true"></i>
+                <!-- <button class="wait_button">Xác nhận</button> -->
+              </td>
+            </tr>
+            <tr class="border-0">
+              <td style="border: none"></td>
+              <td></td>
+              <td></td>
+              <td>TOTAL</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </ng-container>
+</div>

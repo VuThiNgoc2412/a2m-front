@@ -1,0 +1,35 @@
+<form id="phieumuonForm" class="center" (ngSubmit)="onSubmit()">
+    <h3>Danh sách đặt hàng</h3>
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr class="text-center">
+                    <th style="width: 10%">Bìa</th>
+                    <th style="width: 10%">Tên đầu sách</th>
+                    <th style="width: 10%">Tác giả</th>
+                    <th style="width: 10%">Số trang</th>
+                <!-- <th>Thể loại</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let item of bookList">
+                    <tr class="active-table">
+                        <td class="text-center">{{ item.img }}</td>
+                        <td class="text-center">{{ item.title }}</td>
+                        <td class="text-center">{{ item.author }}</td>
+                        <td class="text-center">{{ item.pages }}</td>
+                    </tr>
+                </ng-container>    
+                <!-- <td>{{ item.genre }}</td> -->
+            </tbody>
+        </table>
+        <div>
+            <h4>Hẹn ngày lấy</h4>
+            <input type="date" id="borrowedDate" name="borrowedDate" (ngModel)="borrowedDate">
+            <!-- <p>Selected Date: {{ borrowedDate | date: 'medium' }}</p> -->  
+        </div>
+        <br/>
+        <input type="checkbox" id="accept" name="accept" value="true" [(ngModel)]="agreed"> Tôi đã đọc và chấp nhận điều khoản
+    </div>
+    <button class="btn btn-info" type="submit">Đặt hàng</button>
+</form>
